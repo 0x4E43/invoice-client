@@ -8,7 +8,7 @@ import { useFilterState } from '../../state/home.state';
 const Header: FC<{ numInvoices: number }> = ({ numInvoices }) => {
     const formState = useFormState();
     const statusState = useFilterState().get();
-    const status = statusState ? statusState.toLowerCase() : 'total';
+    const status = statusState ? statusState : 'total';
 
     return (
         <header className={styles.container}>

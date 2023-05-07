@@ -7,6 +7,8 @@ import { getStatusColors } from '../../utils/getStatusColors';
 const Invoice: FC<Invoice> = ({ invoice }) => {
     let color: number[];
     color = getStatusColors(invoice.status)
+    console.log("INVOICE")
+    console.log(invoice)
     const status = invoice.status[0].toUpperCase() + invoice.status.substring(1);
 
     return (
@@ -15,7 +17,7 @@ const Invoice: FC<Invoice> = ({ invoice }) => {
                 <h2 className={styles.id}><span>#</span>{invoice.id}</h2>
                 <p className={styles.dueDate}>{invoice.paymentDue}</p>
                 <p className={styles.name}>{invoice.clientName}</p>
-                <h2 className={styles.total}>₹ {invoice.total.toFixed(2)}</h2>
+                <h2 className={styles.total}>₹ {invoice.total}</h2>
                 <div style={{ backgroundColor: `rgba(${color},0.06)` }} className={styles.status}>
                     <span style={{ backgroundColor: `rgb(${color})` }}></span>
                     <h3 style={{ color: `rgb(${color})` }} className={styles.label}>{status}</h3>

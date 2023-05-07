@@ -13,7 +13,7 @@ const HeaderCTA: FC<Status> = ({ status, id }) => {
     const changeStatus = async (e: any) => {
         e.preventDefault()
         setLoading(true)
-        await fetch(process.env.NEXT_PUBLIC_INVOICES_API_URL ? process.env.NEXT_PUBLIC_INVOICES_API_URL + `/${id}` : '', {
+        await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL + `/${id}` : '', {
             method: 'PATCH',
             body: JSON.stringify({ "status": "paid" }),
             headers: {
@@ -40,7 +40,7 @@ const HeaderCTA: FC<Status> = ({ status, id }) => {
             <div className={styles.buttonsDiv}>
                 <button onClick={() => formState.open()} className={styles.editButton}>Edit</button>
                 <button onClick={() => modalState.open()} className={styles.deleteButton}>Delete</button>
-                {["paid", "pending"].includes(status.toLowerCase()) ?
+                {["paid", "pending"].includes(status) ?
                     <button onClick={(e) => changeStatus(e)} className={styles.paidButton}>
                         {!loading ? 'Mark as Paid' : <div className={styles.ldsEllipsis}><div></div><div></div><div></div><div></div></div>}
                     </button> :

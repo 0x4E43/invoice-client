@@ -33,7 +33,7 @@ const InvoiceForm: FC<FormType> = ({ formType, invoice }) => {
             values.total = (values.items.map((item) => item.total)).reduce((acc, b) => acc + b)
         }
         if (formType === "create") {
-            await fetch(process.env.NEXT_PUBLIC_INVOICES_API_URL ? process.env.NEXT_PUBLIC_INVOICES_API_URL : '', {
+            await fetch("http://localhost:8080/invoices", {
                 method: 'POST',
                 body: JSON.stringify(values),
                 headers: {
@@ -43,12 +43,12 @@ const InvoiceForm: FC<FormType> = ({ formType, invoice }) => {
             })
                 .then(() => {
                     window.localStorage.setItem('form-values', JSON.stringify(initialValues));
-                    router.reload()
-                    formState.close()
+                    // router.reload()
+                    // formState.close()
                 })
                 .catch(e => console.log(e))
         } else {
-            await fetch(process.env.NEXT_PUBLIC_INVOICES_API_URL ? process.env.NEXT_PUBLIC_INVOICES_API_URL + `/${invoice?.id}` : '', {
+            await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL + `/${invoice?.id}` : '', {
                 method: 'PATCH',
                 body: JSON.stringify({ ...values, status: "pending" }),
                 headers: {

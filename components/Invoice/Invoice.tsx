@@ -5,6 +5,8 @@ import InvoiceItems from './InvoiceItems';
 import styles from './styles/Invoice.module.css';
 
 const Invoice: FC<Invoice> = ({ invoice }) => {
+    
+    console.log(invoice)
     return (
         <div className={styles.container}>
             <InvoiceHeader id={invoice.id || ''} description={invoice.description} senderAddress={invoice.senderAddress} />

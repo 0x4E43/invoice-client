@@ -3,6 +3,7 @@ import styles from './styles/InvoiceCenter.module.css';
 
 const InvoiceCenter: FC<InvoiceCenter> = ({ ...props }) => {
     const { createdAt, paymentDue, clientName, clientEmail, clientAddress } = props
+    // console.log(props)
     return (
         <div className={styles.container}>
             <div className={styles.leftBox}>
@@ -19,10 +20,10 @@ const InvoiceCenter: FC<InvoiceCenter> = ({ ...props }) => {
                 <span>Bill To</span>
                 <h3>{clientName}</h3>
                 <address className={styles.clientAddress}>
-                    <span className={styles.street}>{clientAddress.street}</span>
-                    <span className={styles.city}>{clientAddress.city}</span>
-                    <span className={styles.postcode}>{clientAddress.postCode}</span>
-                    <span className={styles.country}>{clientAddress.country}</span>
+                    <span className={styles.street}>{clientAddress?.street}</span>
+                    <span className={styles.city}>{clientAddress?.city}</span>
+                    <span className={styles.postcode}>{clientAddress?.postCode}</span>
+                    <span className={styles.country}>{clientAddress?.country}</span>
                 </address>
             </div>
             <div className={styles.rightBox}>

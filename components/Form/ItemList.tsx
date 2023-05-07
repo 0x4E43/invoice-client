@@ -66,7 +66,7 @@ const ItemList: FC<ItemsListProps> = ({ items, push, handleChange, setFieldValue
                                     setFieldValue && setFieldValue(`items[${index}].total`, total)
                                 }}
                             />
-                            <span>{(items[index].price * items[index].quantity).toFixed(2)}</span>
+                            <span>{(items[index].price * items[index].quantity)}</span>
                         </div>
                         <div className={styles.deleteIcon}>
                             <span onClick={() => remove(index)} className={styles.iconSpan}><MdDelete /></span>

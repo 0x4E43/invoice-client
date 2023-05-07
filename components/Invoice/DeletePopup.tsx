@@ -10,7 +10,7 @@ const DeletePopup: FC<{ id?: string }> = ({ id }) => {
     const deleteInvoice = async (e: any) => {
         e.preventDefault()
         setLoading(true)
-        await fetch(process.env.NEXT_PUBLIC_INVOICES_API_URL ? process.env.NEXT_PUBLIC_INVOICES_API_URL + `/${id}` : '', { method: 'DELETE' })
+        await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL + `/${id}` : '', { method: 'DELETE' })
             .catch(e => console.error(e))
         modalState.close()
         router.replace('/')

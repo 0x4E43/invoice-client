@@ -1,6 +1,7 @@
 export const getStatusColors = (statusName: string) => {
+    console.log(statusName)
     let color: number[];
-    statusName = statusName.toLowerCase();
+    // statusName = statusName?.toLowerCase();
     switch (statusName) {
         case 'pending':
             color = [255, 143, 0]

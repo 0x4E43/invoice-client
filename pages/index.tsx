@@ -15,10 +15,10 @@ const Home: FC<Invoices> = ({ invoices }) => {
   const router = useRouter()
 
   const getInvoices = async () => {
-    console.log(process.env.NEXT_PUBLIC_INVOICES_API_URL + `/${status}`);
-    console.log(status);
+    console.log(process.env.INVOICES_API_URL + `/${status}`);
+    // console.log(status);
 
-    const res = await fetch(process.env.NEXT_PUBLIC_INVOICES_API_URL ? process.env.NEXT_PUBLIC_INVOICES_API_URL + `/${status}` : '')
+    const res = await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL + `/${status}` : '')
     console.log(process.env.NEXT_PUBLIC_INVOICES_API_URL + `/${status}`);
     let statusInvoices: FormValues[] = await res.json();
     statusInvoices = statusInvoices.map((invoice: FormValues) => (
@@ -48,6 +48,7 @@ const Home: FC<Invoices> = ({ invoices }) => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL : '');
   let invoices: FormValues[] = await res.json();
+  console.log("LOG TEST"+invoices)
   invoices = invoices.map((invoice: FormValues) => (
     {
       ...invoice,
