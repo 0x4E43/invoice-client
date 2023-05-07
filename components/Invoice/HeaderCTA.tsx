@@ -13,7 +13,7 @@ const HeaderCTA: FC<Status> = ({ status, id }) => {
     const changeStatus = async (e: any) => {
         e.preventDefault()
         setLoading(true)
-        await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL + `/${id}` : '', {
+        await fetch("http://localhost:8080/invoices" + `/${id}`, {
             method: 'PATCH',
             body: JSON.stringify({ "status": "paid" }),
             headers: {

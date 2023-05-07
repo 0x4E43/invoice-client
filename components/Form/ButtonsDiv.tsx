@@ -27,7 +27,7 @@ const ButtonsDiv: FC<ButtonsType> = ({ formType, values, setSubmitting }) => {
             values.items = values.items.map(item => ({ ...item, quantity: Number(item.quantity), price: Number(item.price), total: Number(item.price * item.quantity) }))
             values.total = (values.items.map((item) => item.total)).reduce((acc, b) => acc + b)
         }
-        await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL : '', {
+        await fetch("http://localhost:8080/invoices", {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
@@ -41,7 +41,7 @@ const ButtonsDiv: FC<ButtonsType> = ({ formType, values, setSubmitting }) => {
                 // formState.close()
             })
             .catch(e => console.log(e))
-        console.log(values)
+        // console.log(values)
         setSubmitting(false)
     }
     return (

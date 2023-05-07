@@ -1,5 +1,5 @@
 export const getStatusColors = (statusName: string) => {
-    console.log(statusName)
+    // console.log(statusName)
     let color: number[];
     // statusName = statusName?.toLowerCase();
     switch (statusName) {

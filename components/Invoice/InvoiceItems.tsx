@@ -2,7 +2,7 @@ import { FC, Fragment } from 'react';
 import styles from './styles/InvoiceItems.module.css';
 
 const InvoiceItems: FC<InvoiceItems> = ({ items, total }) => {
-    console.log(items)
+    // console.log(items)
     return (
         
         <>

@@ -4,7 +4,7 @@ import Invoice from './Invoice';
 
 const Main: FC<Invoice> = ({ invoice }) => {
     
-    console.log(invoice)
+    // console.log(invoice)
     return (
         <>
             <Header id={invoice.id || ''} status={invoice.status} />

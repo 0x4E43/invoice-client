@@ -48,7 +48,7 @@ const InvoiceForm: FC<FormType> = ({ formType, invoice }) => {
                 })
                 .catch(e => console.log(e))
         } else {
-            await fetch(process.env.INVOICES_API_URL ? process.env.INVOICES_API_URL + `/${invoice?.id}` : '', {
+            await fetch("http://localhost:8080/invoices" + `/${invoice?.id}`, {
                 method: 'PATCH',
                 body: JSON.stringify({ ...values, status: "pending" }),
                 headers: {

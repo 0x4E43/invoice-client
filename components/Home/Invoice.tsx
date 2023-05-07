@@ -7,8 +7,6 @@ import { getStatusColors } from '../../utils/getStatusColors';
 const Invoice: FC<Invoice> = ({ invoice }) => {
     let color: number[];
     color = getStatusColors(invoice.status)
-    console.log("INVOICE")
-    console.log(invoice)
     const status = invoice.status[0].toUpperCase() + invoice.status.substring(1);
 
     return (

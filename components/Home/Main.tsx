@@ -5,7 +5,6 @@ import NoInvoices from './NoInvoices';
 
 const Main: FC<Invoices> = ({ invoices }) => {
     const numInvoices = invoices.length;
-    console.log(invoices)
     return (
         <>
             <Header numInvoices={numInvoices} />

@@ -25,11 +25,8 @@ const Invoice: FC<Invoice> = ({ invoice }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const id = context.params?.id
-    const res = await fetch(process.env.INVOICES_API_URL+`/${id}`,  { method: 'PATCH' })
-    console.log(process.env.INVOICES_API_URL+`/${id}`)
+    const res = await fetch("http://localhost:8080/invoices"+`/${id}`,  { method: 'PATCH' })
     const invoice = await res.json()
-    console.log(id)
-    console.log(invoice)
     invoice.createdAt = dayjs(invoice.createdAt).format('DD MMM YYYY')
     invoice.paymentDue = dayjs(invoice.paymentDue).format('DD MMM YYYY')
     invoice.id = invoice._id
